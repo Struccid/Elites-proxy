@@ -1,0 +1,23 @@
+{ 
+  "dependencies": {
+    "bare-server-node": "github:tomphttp/bare-server-node",
+    "node-static": "^0.7.11"
+  },
+  "name": "project",
+  "version": "1.4.0",
+  "description": "a web proxy with a backend of uv, made with freedomforge.",
+  "main": "index.js",
+  "scripts": {
+    "vercel-start": "npm install @vercel/node",
+    "start": "node ."
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "proxy"
+  ],
+  "author": "sombody",
+  "license": "GPL-3.0-or-later"
+}
