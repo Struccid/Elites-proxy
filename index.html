@@ -1,6 +1,9 @@
-<link rel='stylesheet' type='text/css' href='/style.css'/>
-<script src='uv/uv.bundle.js'></script>
-<script src='uv/uv.config.js'></script>
+<script src="/uv/uv.bundle.js" defer></script>
+<script src="/uv/uv.config.js" defer></script>
+<script src="/register-sw.js" defer></script>
+<script src="/search.js" defer></script>
+<script src="/scripts/index.js" defer></script>
+<script src="/error.js" defer></script>
 <link rel='icon' type='image/x-icon' href='---icon---'>
 <div class='title'>
     <h1 id='title1'></h1>
@@ -92,21 +95,19 @@
     title1.style.fontSize = fontsize1+'px';
     search.style.fontSize = fontsize2+'px';
     
-    const form = document.querySelector('form');
-    const input = document.querySelector('input');
+    const form = document.getElementById('searchbox');
+    const input = document.getElementById('search');
 
     form.addEventListener('submit', async event => {
         event.preventDefault();
-        window.navigator.serviceWorker.register('./sw.js', {
-            scope: __uv$config.prefix
-        }).then(() => {
-            let url = input.value.trim();
-            
-            if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
-            else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
-            
-            window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-        });
+      try {
+        await registerSW();
+      } catch (err) {
+        alert(err.toString());
+        throw err;
+      }
+      const url = search(input.value, "https://www.google.com/?q=%s");
+    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
     });
 
     function isUrl(val = '') {
