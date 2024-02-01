@@ -1,4 +1,4 @@
-# Elite Proxy  A fast tab cloaking with hundreds of games to play and apps
+# Elite Proxy  no clue for the title
 ## Features:
 - Advanced Tab Cloaking
 - Advanced About:Blank Cloaking (prevents site from showing on browser history)
