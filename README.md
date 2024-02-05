@@ -1,4 +1,4 @@
-# Elite Proxy  no clue for the title
+# Elite Proxy  The Best proxy for speed!
 ## Features:
 - Advanced Tab Cloaking
 - Advanced About:Blank Cloaking (prevents site from showing on browser history)
